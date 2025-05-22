@@ -38,9 +38,13 @@ txt += `
  const Dtask = document.getElementById("d-task");
 
  document.querySelector(".data-box").innerHTML = txt;
+ clearData();
 }
 
-
-
-
 });
+
+function clearData(){
+  txtTtask.value = "";
+  txtDtask.value = "";
+  txtTtask.focus();
+}
