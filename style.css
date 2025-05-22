@@ -83,7 +83,6 @@ input {
 
 .data-box #data {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   width: 100%;
   padding: 7px 15px;
@@ -132,9 +131,14 @@ button:active {
   opacity: 0.9;
 }
 
-
 /* Extra small devices (phones) */
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+ .input-box #btn-add {
+  width: 110px;
+  font-size: 12px;
+}
+
+}
 
 /* Small devices (portrait tablets) */
 @media (min-width: 576px) {
@@ -164,18 +168,6 @@ button:active {
   .task-manager-box {
     padding: 40px 80px;
   }
-
-  /* 
-  .data-box #data {
-    display: flex;
-    flex-direction: column;
-  justify-content: space-between; 
-  width: 100%;
-  padding: 7px 15px;
-  border-radius: 8px;
-  box-shadow: 2px 1px 3px 0.2px rgba(105, 105, 105, 0.647);
-  font-size: 14px; 
-    align-items: center;} */
 
   .task-manager-box .input-box label,
   input {
