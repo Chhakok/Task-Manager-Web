@@ -134,7 +134,7 @@ button:active {
 /* Extra small devices (phones) */
 @media (max-width: 575px) {
  .input-box #btn-add {
-  width: 110px;
+  width: 130px;
   font-size: 12px;
 }
 
