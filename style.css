@@ -1,0 +1,201 @@
+body {
+  background-color: whitesmoke;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  margin: 0;
+  padding: 0;
+}
+
+.box-container {
+  /* margin: 0; */
+  padding: 0;
+}
+
+.task-manager-box {
+  width: 100%;
+  /* background-color: lightgray; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* padding: 80px 160px; */
+  margin-top: 20px;
+}
+
+.task-manager-box .input-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+
+.task-manager-box h2 {
+  margin-bottom: 40px;
+}
+
+.task-manager-box .input-box label,
+input {
+  /* font-size: 18px; */
+  font-size: 14px;
+}
+
+.task-manager-box .input-box label {
+  font-weight: bold;
+  color: rgb(54, 54, 54);
+}
+
+.task-manager-box .input-box input[type="text"] {
+  outline: none;
+  border: 1px solid dimgray;
+  border-radius: 8px;
+  padding: 7px 15px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.input-box #btn-add {
+  display: block;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4f4ffc;
+  color: white;
+  font-size: 14px;
+}
+
+.data-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 10px;
+}
+
+.data-box #data {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 1px 3px 0.2px rgba(105, 105, 105, 0.647);
+  font-size: 14px;
+}
+
+.data-box #data .box-task {
+  display: flex;
+  flex-direction: column;
+  color: rgb(54, 54, 54);
+}
+
+.data-box #data .box-btn {
+  /* background-color: blueviolet; */
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.data-box #data .box-btn button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  margin-left: 10px;
+}
+
+.data-box #data .box-btn #btn-edit {
+  background-color: orange;
+  color: white;
+}
+
+
+.data-box #data .box-btn #btn-delete {
+  color: white;
+  background-color: crimson;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.9;
+}
+
+
+/* Extra small devices (phones) */
+@media (max-width: 575px) {}
+
+/* Small devices (portrait tablets) */
+@media (min-width: 576px) {
+
+  .task-manager-box .input-box label,
+  input {
+    font-size: 16px;
+  }
+
+  .data-box #data {
+    font-size: 16px;
+  }
+
+  .data-box #data .box-task h6 {
+    font-size: 17px;
+  }
+
+}
+
+
+
+/* Medium devices (landscape tablets) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) {
+  .task-manager-box {
+    padding: 40px 80px;
+  }
+
+  /* 
+  .data-box #data {
+    display: flex;
+    flex-direction: column;
+  justify-content: space-between; 
+  width: 100%;
+  padding: 7px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 1px 3px 0.2px rgba(105, 105, 105, 0.647);
+  font-size: 14px; 
+    align-items: center;} */
+
+  .task-manager-box .input-box label,
+  input {
+    font-size: 18px;
+  }
+
+  .data-box #data .box-task {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .data-box #data .box-task h6 {
+    font-size: 18px;
+  }
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1200px) {
+  .task-manager-box {
+    padding: 40px 160px;
+  }
+}
