@@ -16,17 +16,19 @@ span {
 
 .box-container {
   /* margin: 0; */
+  position: relative;
   padding: 0;
+
+
 }
 
 .task-manager-box {
   width: 100%;
-  /* background-color: lightgray; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* padding: 80px 160px; */
+
   margin-top: 20px;
 }
 
@@ -62,7 +64,14 @@ input {
   margin-top: 5px;
 }
 
-.input-box #btn-add {
+.input-box .btn-add-cancel {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+
+.input-box #btn-add,
+#btn-cancel {
   display: block;
   width: 100px;
   height: 40px;
@@ -72,6 +81,11 @@ input {
   background-color: #4f4ffc;
   color: white;
   font-size: 14px;
+}
+
+.input-box #btn-cancel {
+  display: none;
+  background-color: #5C636A;
 }
 
 .data-box {
@@ -112,13 +126,13 @@ input {
   margin-left: 10px;
 }
 
-.data-box #data .box-btn #btn-edit {
+.data-box #data .box-btn .btn-edit {
   background-color: orange;
   color: white;
 }
 
 
-.data-box #data .box-btn #btn-delete {
+.data-box #data .box-btn .btn-delete {
   color: white;
   background-color: crimson;
 }
@@ -131,6 +145,70 @@ button:active {
   opacity: 0.9;
 }
 
+
+
+.frm-popup {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  flex-direction: column;
+  width: 370px;
+  height: 170px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  row-gap: 20px;
+  padding: 10px;
+  background-color: #fafafa;
+  box-shadow: 0px 0px 10px 1px rgba(105, 105, 105, 0.2);
+}
+
+.frm-popup::before {
+  position: absolute;
+  top: 60px;
+  content: "";
+  width: 95%;
+  height: 1px;
+  background-color: #939393;
+}
+
+
+.frm-popup .btn-yes-no {
+  display: flex;
+  column-gap: 10px;
+}
+
+.frm-popup .btn-yes-no input[type="button"] {
+  font-size: 14px;
+  width: 70px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background-color: darkgray;
+  color: white;
+}
+
+.frm-popup .btn-yes-no input[type="button"]:hover {
+  opacity: 0.8;
+}
+
+
+.frm-popup .btn-yes-no input[type="button"]:active {
+  opacity: 0.9;
+}
+
+
+
+.frm-popup .btn-yes-no #btn-yes-del {
+  background-color: crimson;
+}
+
+
+
+
 /* Extra small devices (phones) */
 @media (max-width: 575px) {
   .input-box {
@@ -138,7 +216,7 @@ button:active {
     padding-bottom: 50px;
   }
 
-  .input-box #btn-add {
+  .input-box .btn-add {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -152,6 +230,8 @@ button:active {
   }
 
 }
+
+
 
 /* Small devices (portrait tablets) */
 @media (min-width: 576px) {
@@ -169,8 +249,11 @@ button:active {
     font-size: 17px;
   }
 
-}
+  .input-box .btn-add-cancel {
+    justify-content: start;
+  }
 
+}
 
 
 /* Medium devices (landscape tablets) */
