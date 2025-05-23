@@ -4,13 +4,9 @@ const taskList = [];
 // variable store data get from txt box
 const txtTtask = document.getElementById("txt-Ttask");
 const txtDtask = document.getElementById("txt-Dtask");
+const btnCancel = document.getElementById("btn-cancel");
 var x;
 var btnOpt = true;
-
-
-// document.getElementById("btn-save").addEventListener("click",function(){
-
-// });
 
 
 
@@ -20,13 +16,11 @@ showListTask();
 });
 
 
-
-
 // btn add click event
 document.getElementById("btn-add").addEventListener("click",function(){
-   
   if(btnOpt == true){
     AddData();
+    hideBtnCancel()
   }else{
     editData();
   }
@@ -39,7 +33,6 @@ document.getElementById("btn-add").addEventListener("click",function(){
 function showListTask(){
 var txt = "";
 // loop obj array 
-// for(i in taskList)
   
 for(let i = 0; i < taskList.length; i++){
     txt += `
@@ -59,6 +52,8 @@ for(let i = 0; i < taskList.length; i++){
     document.querySelector(".data-box").innerHTML = txt;
     clearData(); // call method clear txt box
 
+
+    // buttton Edit
     const btnEditList = document.querySelectorAll(".btn-edit");
 
     btnEditList.forEach((element, i) => {
@@ -71,15 +66,14 @@ for(let i = 0; i < taskList.length; i++){
         document.getElementById("btn-add").style.backgroundColor = "seagreen";
 
         // Cancel Button
-        var btnCancel = document.getElementById("btn-cancel");
         btnCancel.style.display = "block";
-
-        btnCancel.addEventListener("click",function(){
-            btnOpt = true;
-            document.getElementById("btn-add").innerHTML = ` <i class="fa-solid fa-plus"></i> <span>Add Task</span>`;
-            document.getElementById("btn-add").style.backgroundColor = "#4f4ffc";
-            btnCancel.style.display = "none";
+        // Register this only once
+        btnCancel.addEventListener("click", function() {
+          hideBtnCancel();
+          clearData();
+          btnOpt = true;
         });
+
 
       });
     });
@@ -95,16 +89,22 @@ for(let i = 0; i < taskList.length; i++){
 
 
 document.getElementById("btn-yes-del").addEventListener("click",function(){
-taskList.splice(x,1);
-showListTask();
- document.querySelector(".frm-popup").style.display = "none";
+    taskList.splice(x,1);
+    showListTask();
+    document.querySelector(".frm-popup").style.display = "none";
 });
 
 document.getElementById("btn-no-del").addEventListener("click",function(){
-showListTask();
- document.querySelector(".frm-popup").style.display = "none";
+    showListTask();
+    document.querySelector(".frm-popup").style.display = "none";
 });
 
+
+function hideBtnCancel(){
+    document.getElementById("btn-add").innerHTML = `<i class="fa-solid fa-plus"></i> <span>Add Task</span>`;
+    document.getElementById("btn-add").style.backgroundColor = "#4f4ffc";
+    btnCancel.style.display = "none";
+}
 
 function AddData(){
   if(!validator()) return;
@@ -116,22 +116,18 @@ function AddData(){
     taskList.unshift(AddTask); //  Add new Task
 }
 
+
 function editData(){
   if(!validator()) {
-    btnOpt = false;
-  }else{
-    taskList[x]['Title'] = txtTtask.value;
-    taskList[x]['Description'] = txtDtask.value;
-    btnOpt = true;
-    document.getElementById("btn-add").innerHTML = ` <i class="fa-solid fa-plus"></i> <span>Add Task</span>`;
-      document.getElementById("btn-add").style.backgroundColor = "#4f4ffc";
-  };
-
-
-  
-  
-  // showListTask();
+    return;
+  }
+  taskList[x]['Title'] = txtTtask.value;
+  taskList[x]['Description'] = txtDtask.value;
+  btnOpt = true;
+  hideBtnCancel();
 }
+
+
 // method clear txt box
 function clearData(){
   txtTtask.value = "";

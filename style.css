@@ -80,7 +80,7 @@ input {
   border: none;
   background-color: #4f4ffc;
   color: white;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .input-box #btn-cancel {
@@ -210,26 +210,7 @@ button:active {
 
 
 /* Extra small devices (phones) */
-@media (max-width: 575px) {
-  .input-box {
-    position: relative;
-    padding-bottom: 50px;
-  }
-
-  .input-box .btn-add {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 38px;
-    font-size: 12px;
-  }
-
-}
+@media (max-width: 575px) {}
 
 
 
@@ -237,13 +218,11 @@ button:active {
 @media (min-width: 576px) {
 
   .task-manager-box .input-box label,
-  input {
-    font-size: 16px;
-  }
-
+  input,
   .data-box #data {
     font-size: 16px;
   }
+
 
   .data-box #data .box-task h6 {
     font-size: 17px;
