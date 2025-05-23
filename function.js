@@ -21,6 +21,7 @@ document.getElementById("btn-add").addEventListener("click",function(){
   if(btnOpt == true){
     AddData();
     hideBtnCancel()
+    txtTtask.focus();
   }else{
     editData();
   }
@@ -80,7 +81,7 @@ for(let i = 0; i < taskList.length; i++){
 
     const btnDel= document.querySelectorAll(".btn-delete");
     btnDel.forEach((element,i)=>{
-      element.addEventListener("click", function(){
+        element.addEventListener("click", function(){
         x=i;
         document.querySelector(".frm-popup").style.display = "flex";
       }); 
@@ -132,7 +133,7 @@ function editData(){
 function clearData(){
   txtTtask.value = "";
   txtDtask.value = "";
-  txtTtask.focus();
+  
 }
 
 
